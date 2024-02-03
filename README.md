@@ -2,6 +2,7 @@
 
 - Create React App
 - Configured TailwindCSS
+- Installed React Router DOM
 
 # Features
 
