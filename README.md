@@ -3,6 +3,8 @@
 - Create React App
 - Configured TailwindCSS
 - Installed React Router DOM
+- Building Login Form UI
+- Built Sign Form UI
 
 # Features
 
