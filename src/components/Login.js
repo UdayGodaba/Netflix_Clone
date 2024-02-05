@@ -1,23 +1,69 @@
 import React, { useRef, useState } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const email = useRef();
-  const password = useRef();
+  const name = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
 
   const handleButtonClick = () => {
     // Form Validation
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
+
+    if (message) return;
+
+    // Sign Up
+    if (!isSignInForm) {
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          // const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorMessage);
+        });
+    } else {
+      // Sign In
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          // const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          setErrorMessage(errorMessage);
+        });
+    }
   };
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
+    setErrorMessage(null);
   };
 
   return (
@@ -40,6 +86,7 @@ const Login = () => {
         {!isSignInForm && (
           <input
             type="name"
+            ref={name}
             placeholder="Full Name"
             className="p-4 my-4 w-full bg-gray-700"
           />
@@ -60,8 +107,9 @@ const Login = () => {
         />
 
         <p className="font-bold text-red-700 py-2">{errorMessage}</p>
+
         <button
-          className="p-4 my-4 w-full bg-red-700 rounded-lg"
+          className="p-4 my-2 w-full bg-red-700 rounded-lg"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}

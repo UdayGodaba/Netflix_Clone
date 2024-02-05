@@ -3,8 +3,11 @@
 - Create React App
 - Configured TailwindCSS
 - Installed React Router DOM
-- Building Login Form UI
+- Built Login Form UI
 - Built Sign Form UI
+- Configured Firebase for auth backend and hosting UI
+- Initialized Sign In and Sign Up logic
+- Setup Redux toolkit
 
 # Features
 
