@@ -6,3 +6,12 @@ export const LOGIN_BACKGROUND =
 
 export const USER_ICON =
   "https://occ-0-4857-2186.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABe3AS8xWNNmm8HlokLrmgIPqxgDohbraAUmm3dQrgmRf7U13AMm-4aXXkLFYD4lyDg6bNvqt_2Lc8cdtEM9Y2n3TDYTrXqQ.png?r=b39";
+
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjQxNmExNjQyMDAxZjY5N2QyOWYxNWZjYjEwOGI0MSIsInN1YiI6IjY0NmVlYjBkZWEzOTQ5MDEzNDIxYTljMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5aIVWjzJdXm4qlvhA6O61wTPhZwem__Ta6hFz40BASc",
+  },
+};
