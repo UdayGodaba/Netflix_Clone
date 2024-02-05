@@ -1,20 +1,40 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
+
+  // To reset field values in form to empty whenever switch between Sign In / Sign Up
+  useEffect(() => {
+    if (name.current) {
+      name.current.value = "";
+    }
+    if (email.current) {
+      email.current.value = "";
+    }
+    if (password.current) {
+      password.current.value = "";
+    }
+  }, [isSignInForm]);
 
   const handleButtonClick = () => {
     // Form Validation
@@ -33,7 +53,27 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          // Doing this to update profile picture as this firebase has no direct update with sign in/sign up
+          updateProfile(user, {
+            photoURL:
+              "https://occ-0-4857-2186.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABe3AS8xWNNmm8HlokLrmgIPqxgDohbraAUmm3dQrgmRf7U13AMm-4aXXkLFYD4lyDg6bNvqt_2Lc8cdtEM9Y2n3TDYTrXqQ.png?r=b39",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              console.log(photoURL);
+              dispatch(
+                addUser({
+                  uid,
+                  email,
+                  displayName,
+                  photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
         .catch((error) => {
           // const errorCode = error.code;
@@ -50,12 +90,31 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
+          // Doing this to update profile picture as this firebase has no direct update with sign in/sign up
+          updateProfile(user, {
+            photoURL:
+              "https://occ-0-4857-2186.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABe3AS8xWNNmm8HlokLrmgIPqxgDohbraAUmm3dQrgmRf7U13AMm-4aXXkLFYD4lyDg6bNvqt_2Lc8cdtEM9Y2n3TDYTrXqQ.png?r=b39",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid,
+                  email,
+                  displayName,
+                  photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
+          navigate("/browse");
         })
         .catch((error) => {
           // const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorMessage);
           setErrorMessage(errorMessage);
         });
     }
