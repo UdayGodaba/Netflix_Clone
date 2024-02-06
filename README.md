@@ -8,6 +8,7 @@
 - Configured Firebase for auth backend and hosting UI
 - Initialized Sign In and Sign Up logic
 - Setup Redux toolkit
+- TMDB is used as an API for movies
 
 # Features
 
