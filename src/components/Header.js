@@ -8,6 +8,7 @@ import { auth } from "../utils/firebase";
 import { useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
+import { removeAllData } from "../utils/moviesSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Header = () => {
         navigate("/browse");
       } else {
         dispatch(removeUser());
+        dispatch(removeAllData());
         navigate("/");
       }
     });
@@ -42,7 +44,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute w-screen z-10 px-8 py-2 bg-gradient-to-b from-black flex justify-between">
+    <div className="absolute w-screen z-10 px-8 py-2 bg-gradient-to-b from-slate-800 flex justify-between">
       <img className="w-44" src={LOGO} alt="logo" />
       {user && (
         <div className="flex p-2">

@@ -8,7 +8,8 @@ const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   // To avoid breakdown as there will be nothing initially inside store if I try to access movies[0] it will break
   if (movies === null) return;
-  const mainMovie = movies[0];
+  const idx = Math.floor(Math.random() * (movies.length - 1));
+  const mainMovie = movies[idx];
   // console.log(mainMovie);
   const { original_title, overview, id } = mainMovie;
 
