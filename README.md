@@ -9,6 +9,8 @@
 - Initialized Sign In and Sign Up logic
 - Setup Redux toolkit
 - TMDB is used as an API for movies
+- Layout of Browse Section
+- Background video and text
 
 # Features
 
