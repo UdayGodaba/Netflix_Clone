@@ -1,19 +1,17 @@
 import React from "react";
 
-import GptSearchBar from "./GptSearchBar";
-import GptMovieSuggestions from "./GptMovieSuggestions";
+import SearchBar from "./SearchBar";
 import { LOGIN_BACKGROUND } from "../utils/constants";
 
-const GptSearch = () => {
+const Search = () => {
   return (
     <div>
       <div className="absolute -z-20">
         <img src={LOGIN_BACKGROUND} alt="background" />
       </div>
-      <GptSearchBar />
-      <GptMovieSuggestions />
+      <SearchBar />
     </div>
   );
 };
 
-export default GptSearch;
+export default Search;

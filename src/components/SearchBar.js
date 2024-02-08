@@ -1,6 +1,6 @@
 import React from "react";
 
-const GptSearchBar = () => {
+const SearchBar = () => {
   return (
     <div className="pt-[10%] flex justify-center">
       <form className="w-1/2 bg-black bg-opacity-80 grid grid-cols-12 rounded-md">
@@ -17,4 +17,4 @@ const GptSearchBar = () => {
   );
 };
 
-export default GptSearchBar;
+export default SearchBar;
