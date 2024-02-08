@@ -16,6 +16,8 @@ export const API_OPTIONS = {
   },
 };
 
+export const GET_MOVIE_DETAILS = "https://api.themoviedb.org/3/movie/";
+
 export const GET_NOW_PLAYING_MOVIES =
   "https://api.themoviedb.org/3/movie/now_playing?page=1";
 

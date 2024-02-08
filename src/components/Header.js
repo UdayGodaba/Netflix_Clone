@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
 import { removeAllData } from "../utils/moviesSlice";
-import { toggleSearchView } from "../utils/searchSlice";
+import { removeSearchedMovies, toggleSearchView } from "../utils/searchSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -47,6 +47,7 @@ const Header = () => {
 
   const handleSearchClick = () => {
     dispatch(toggleSearchView());
+    dispatch(removeSearchedMovies());
   };
 
   return (
@@ -55,7 +56,7 @@ const Header = () => {
       {user && (
         <div className="flex p-2">
           <button
-            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
+            className="py-2 px-4 mx-4 my-2 bg-blue-700 text-white rounded-lg"
             onClick={handleSearchClick}
           >
             {!showSearch ? "Search" : "Home"}

@@ -21,7 +21,7 @@ const SearchBar = () => {
 
     const json = await moviesData.json();
     // console.log(json);
-    dispath(addSearchedMovies(json));
+    dispath(addSearchedMovies(json.results));
   };
 
   return (

@@ -13,8 +13,12 @@ const searchSlice = createSlice({
     addSearchedMovies: (state, action) => {
       state.searchedMovies = action.payload;
     },
+    removeSearchedMovies: (state) => {
+      state.searchedMovies = null;
+    },
   },
 });
 
-export const { toggleSearchView, addSearchedMovies } = searchSlice.actions;
+export const { toggleSearchView, addSearchedMovies, removeSearchedMovies } =
+  searchSlice.actions;
 export default searchSlice.reducer;
