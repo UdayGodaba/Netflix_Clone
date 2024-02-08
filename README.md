@@ -25,6 +25,6 @@
     - Title and Description
     - MovieSuggestions
       - MovieLists
-- NetflixGPT
+- Netflix
   - Search Bar
   - Movie Suggestions

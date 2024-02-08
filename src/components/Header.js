@@ -9,12 +9,12 @@ import { useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
 import { removeAllData } from "../utils/moviesSlice";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { toggleSearchView } from "../utils/searchSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+  const showSearch = useSelector((store) => store.search.showSearch);
 
   const dispatch = useDispatch();
 
@@ -45,8 +45,8 @@ const Header = () => {
       });
   };
 
-  const handleGptSearchClick = () => {
-    dispatch(toggleGptSearchView());
+  const handleSearchClick = () => {
+    dispatch(toggleSearchView());
   };
 
   return (
@@ -56,9 +56,9 @@ const Header = () => {
         <div className="flex p-2">
           <button
             className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
-            onClick={handleGptSearchClick}
+            onClick={handleSearchClick}
           >
-            {!showGptSearch ? "Search" : "Home"}
+            {!showSearch ? "Search" : "Home"}
           </button>
 
           <img className="w-12 h-12" alt="usericon" src={user.photoURL} />

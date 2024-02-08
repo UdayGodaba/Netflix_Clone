@@ -29,3 +29,8 @@ export const GET_UPCOMING_MOVIES =
   "https://api.themoviedb.org/3/movie/upcoming?page=1";
 
 export const IMG_CDN = "https://image.tmdb.org/t/p/w500";
+
+export const GET_SPECIFIC_MOVIES =
+  "https://api.themoviedb.org/3/search/movie?query=";
+
+export const API_SEARCH_ADD_ONS = "&include_adult=false&language=en-US&page=1";

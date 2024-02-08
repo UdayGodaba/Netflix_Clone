@@ -11,7 +11,7 @@ import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpComingMovies from "../hooks/useUpComingMovies";
 
 const Browse = () => {
-  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+  const showSearch = useSelector((store) => store.search.showSearch);
 
   useNowPlayingMovies();
   usePopularMovies();
@@ -21,7 +21,7 @@ const Browse = () => {
   return (
     <div>
       <Header />
-      {showGptSearch ? (
+      {showSearch ? (
         <SearchContainer />
       ) : (
         <>
