@@ -11,6 +11,7 @@
 - TMDB is used as an API for movies
 - Layout of Browse Section
 - Background video and text
+- Carousel section for Movies for different sections
 
 # Features
 
