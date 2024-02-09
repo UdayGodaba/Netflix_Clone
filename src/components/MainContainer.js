@@ -5,7 +5,7 @@ import VideoTitle from "./VideoTitle";
 
 const MainContainer = () => {
   return (
-    <div>
+    <div className="pt-[40%] bg-black md:pt-[12%] lg:pt-[7%] xl:pt-0">
       <VideoTitle
         title={"Oppenheimer"}
         overview={

@@ -10,17 +10,23 @@ const Search = () => {
   const searchResult = useSelector((store) => store.search.searchedMovies);
   const langKey = useSelector((store) => store.config.lang);
   return (
-    <div>
+    <>
       <div className="absolute -z-20">
-        <img src={LOGIN_BACKGROUND} alt="background" />
+        <img
+          className="min-h-screen object-cover"
+          src={LOGIN_BACKGROUND}
+          alt="background"
+        />
       </div>
-      <SearchBar />
-      <div className="bg-black opacity-90 mt-5">
-        {searchResult && (
-          <MovieList title={lang[langKey].results} movies={searchResult} />
-        )}
+      <div className="">
+        <SearchBar />
+        <div className="bg-black opacity-90 mt-5">
+          {searchResult && (
+            <MovieList title={lang[langKey].results} movies={searchResult} />
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

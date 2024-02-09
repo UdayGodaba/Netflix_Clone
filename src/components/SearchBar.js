@@ -28,19 +28,19 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="pt-[10%] flex justify-center">
+    <div className="pt-[50%] md:pt-[30%] lg:pt-[10%] flex justify-center">
       <form
-        className="w-1/2 bg-black bg-opacity-80 grid grid-cols-12 rounded-md"
+        className="w-full md:w-3/4 lg:w-1/2 bg-black bg-opacity-80 grid grid-cols-12 rounded-md"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           type="text"
           ref={searchText}
-          className="p-4 m-4 col-span-9 rounded-md"
+          className="p-2 m-2 md:p-4 md:m-4 col-span-9 rounded-md"
           placeholder={lang[langKey].searchPlaceholder}
         />
         <button
-          className="col-span-3 py-2 px-4 m-4 bg-red-700 text-white rounded-lg"
+          className="col-span-3 py-1 px-2 m-2 md:py-2 md:px-4 md:m-4 bg-red-700 text-white rounded-lg"
           onClick={handleClick}
         >
           {lang[langKey].search}

@@ -10,7 +10,7 @@ const SecondaryContainer = () => {
   if (!movies) return;
   return (
     <div className="bg-black">
-      <div className="mt-0 md:-mt-52 pl-4 md:pl-12 relative z-20">
+      <div className="mt-0 lg:-mt-20 xl:-mt-30 2xl:-mt-52 pl-2 lg:pl-8 xl:pl-12 relative z-20">
         <MovieList
           title={lang[langKey].nowPlaying}
           movies={movies.nowPlayingMovies}
