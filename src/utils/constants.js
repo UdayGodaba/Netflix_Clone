@@ -11,10 +11,15 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjQxNmExNjQyMDAxZjY5N2QyOWYxNWZjYjEwOGI0MSIsInN1YiI6IjY0NmVlYjBkZWEzOTQ5MDEzNDIxYTljMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5aIVWjzJdXm4qlvhA6O61wTPhZwem__Ta6hFz40BASc",
+    Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "telugu", name: "Telugu" },
+];
 
 export const GET_MOVIE_DETAILS = "https://api.themoviedb.org/3/movie/";
 

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   API_OPTIONS,
@@ -7,11 +7,14 @@ import {
   API_SEARCH_ADD_ONS,
 } from "../utils/constants";
 import { addSearchedMovies } from "../utils/searchSlice";
+import lang from "../utils/languageConstants";
 
 const SearchBar = () => {
   const dispath = useDispatch();
 
   const searchText = useRef(null);
+
+  const langKey = useSelector((store) => store.config.lang);
 
   const handleClick = async () => {
     const moviesData = await fetch(
@@ -34,13 +37,13 @@ const SearchBar = () => {
           type="text"
           ref={searchText}
           className="p-4 m-4 col-span-9 rounded-md"
-          placeholder="What would you like to watch today?"
+          placeholder={lang[langKey].searchPlaceholder}
         />
         <button
           className="col-span-3 py-2 px-4 m-4 bg-red-700 text-white rounded-lg"
           onClick={handleClick}
         >
-          Search
+          {lang[langKey].search}
         </button>
       </form>
     </div>
